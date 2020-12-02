@@ -9,6 +9,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+	
+	private static Scene mainScene; 
+	
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -18,13 +22,18 @@ public class Main extends Application {
 			scroollpane.setFitToHeight(true);
 			scroollpane.setFitToWidth(true);
 			
-			Scene mainScene = new Scene(scroollpane);
+			mainScene = new Scene(scroollpane);
 			primaryStage.setScene(mainScene);
 			primaryStage.setTitle(" GUARDA MUNICIPAL DE CAMPINAS ");
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static Scene getMainScene() {
+		return mainScene;
+		
 	}
 
 	public static void main(String[] args) {
