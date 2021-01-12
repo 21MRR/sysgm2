@@ -35,12 +35,12 @@ public class DepartmentFormController implements Initializable {
 	
 	@FXML
 	public void onBtSaveAction() {
-		System.out.println("SAVE");
+		System.out.println("SAVE ARQUIVE");
 	}
 	
 	@FXML
 	public void onBtCancelAction() {
-		System.out.println("CANCEL");
+		System.out.println("CANCEL ARQUVE");
 	}
 	
 
