@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 import model.entities.Department;
 import model.services.DepartamentService;
 
+
 public class DepartmentListController implements Initializable {
 	
 	
@@ -90,6 +91,7 @@ public class DepartmentListController implements Initializable {
 			 
 			 DepartmentFormController controller = loader.getController();
 			 controller.setDepartment(obj);
+			 controller.setDepartmentService(new DepartamentService());
 			 controller.updateFormData();
 			 
 			 Stage dialogStage = new Stage();
