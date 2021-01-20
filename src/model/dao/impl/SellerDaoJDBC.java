@@ -31,17 +31,14 @@ public class SellerDaoJDBC implements SellerDao {
 		try {
 			st = conn.prepareStatement(
 					"INSERT INTO seller "
-					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
+					+ "(qragm, matgm ) "
 					+ "VALUES "
-					+ "(?, ?, ?, ?, ?)",
+					+ "(?, ?, )",
 					Statement.RETURN_GENERATED_KEYS);
 			
-			st.setString(1, obj.getName());
-			st.setString(2, obj.getEmail());
-			st.setDate(3, new java.sql.Date(obj.getBirthDate().getTime()));
-			st.setDouble(4, obj.getBaseSalary());
-			st.setInt(5, obj.getDepartment().getId());
-			
+			st.setString(1, obj.getQragm());
+			st.setString(2, obj.getMatgm());
+
 			int rowsAffected = st.executeUpdate();
 			
 			if (rowsAffected > 0) {
@@ -70,15 +67,12 @@ public class SellerDaoJDBC implements SellerDao {
 		try {
 			st = conn.prepareStatement(
 					"UPDATE seller "
-					+ "SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? "
-					+ "WHERE Id = ?");
+					+ "SET qragm = ?, matgm = ? " + "WHERE Id = ?");
+					
 			
-			st.setString(1, obj.getName());
-			st.setString(2, obj.getEmail());
-			st.setDate(3, new java.sql.Date(obj.getBirthDate().getTime()));
-			st.setDouble(4, obj.getBaseSalary());
-			st.setInt(5, obj.getDepartment().getId());
-			st.setInt(6, obj.getId());
+			st.setString(1, obj.getQragm());
+			st.setString(2, obj.getMatgm());
+			st.setInt(3, obj.getId());
 			
 			st.executeUpdate();
 		}
@@ -140,11 +134,9 @@ public class SellerDaoJDBC implements SellerDao {
 	private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException {
 		Seller obj = new Seller();
 		obj.setId(rs.getInt("Id"));
-		obj.setName(rs.getString("Name"));
-		obj.setEmail(rs.getString("Email"));
-		obj.setBaseSalary(rs.getDouble("BaseSalary"));
-		obj.setBirthDate(rs.getDate("BirthDate"));
-		obj.setDepartment(dep);
+		obj.setName(rs.getString("qragm"));
+		obj.setMatgm(rs.getString("matgm"));
+	//	obj.setDepartment(dep);
 		return obj;
 	}
 

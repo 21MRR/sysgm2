@@ -165,25 +165,24 @@ public class DepartmentListController implements Initializable, DataChangeListen
 	}
 
 	private void removeEntity(Department obj) {
-		
+
 		Optional<ButtonType> result = Alerts.showConfirmation("Confirmation", "Are you sure delete !!");
-		
+
 		if (result.get() == ButtonType.OK) {
-			
+
 			if (service == null) {
 				throw new IllegalStateException("Service was null ");
-				
+
 			}
 			try {
 				service.remove(obj);
 				updateTableView();
-				
+
 			} catch (DbIntegrityException e) {
 				Alerts.showAlert("Error moving object", null, e.getMessage(), AlertType.ERROR);
-				
+
 			}
-			
-			
+
 		}
 	}
 

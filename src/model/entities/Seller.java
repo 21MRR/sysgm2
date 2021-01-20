@@ -1,30 +1,25 @@
 package model.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+
 
 public class Seller implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
-	private String name;
-	private String email;
-	private Date birthDate;
-	private Double baseSalary;
+	private String qragm;
+	private String matgm ;
 	
-	private Department department;
-	
+
 	public Seller() {
 	}
 
-	public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary, Department department) {
+	public Seller(Integer id, String qragm,String matgm) {
 		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.birthDate = birthDate;
-		this.baseSalary = baseSalary;
-		this.department = department;
+		this.qragm = qragm;
+		this.matgm = matgm;
+		
 	}
 
 	public Integer getId() {
@@ -35,45 +30,22 @@ public class Seller implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getQragm() {
+		return qragm;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String qragm) {
+		this.qragm = qragm;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getMatgm() {
+		return matgm;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMatgm(String matgm) {
+		this.matgm = matgm;
 	}
 
-	public Date getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
-	}
-
-	public Double getBaseSalary() {
-		return baseSalary;
-	}
-
-	public void setBaseSalary(Double baseSalary) {
-		this.baseSalary = baseSalary;
-	}
-
-	public Department getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
 
 	@Override
 	public int hashCode() {
@@ -102,7 +74,6 @@ public class Seller implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Seller [id=" + id + ", name=" + name + ", email=" + email + ", birthDate=" + birthDate + ", baseSalary="
-				+ baseSalary + ", department=" + department + "]";
+		return "Seller [id=" + id + ", qragm=" + qragm + ", matgm=" + matgm + "]";
 	}
 }
