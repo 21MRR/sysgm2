@@ -11,14 +11,29 @@ public class Seller implements Serializable {
 	private String qragm;
 	private String matgm ;
 	
+	private Department department;
+	
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public void setQragm(String qragm) {
+		this.qragm = qragm;
+	}
 
 	public Seller() {
 	}
 
-	public Seller(Integer id, String qragm,String matgm) {
+	public Seller(Integer id, String qragm,String matgm,Department department) {
 		this.id = id;
 		this.qragm = qragm;
 		this.matgm = matgm;
+		this.department = department;
 		
 	}
 
